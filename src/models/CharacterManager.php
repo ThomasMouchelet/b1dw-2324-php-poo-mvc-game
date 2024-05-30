@@ -12,7 +12,7 @@ class CharacterManager {
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function create($username){
+    public function save($username){
         $db = Database::getInstance()->getConnection();
         $query = $db->prepare('INSERT INTO characters (username, strength, hp, xp, lvl) VALUES (:username, :strength, :hp, :xp, :lvl)');
         $query->execute([

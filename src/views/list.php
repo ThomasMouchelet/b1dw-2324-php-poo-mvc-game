@@ -10,9 +10,9 @@
     <h1>List player</h1>
 
     <ul>
-        <li>Player 1</li>
-        <li>Player 2</li>
+        <?php foreach($playerList as $player) : ?>
+            <li><?= $player['username'] ?></li>
+        <?php endforeach; ?>
     </ul>
-
 </body>
 </html>

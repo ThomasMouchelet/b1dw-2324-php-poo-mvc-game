@@ -7,9 +7,8 @@ class CharacterController extends Controller {
     public function showList(){
         $characterManager = new CharacterManager();
         $playerList = $characterManager->findAll();
-        var_dump($playerList);
 
-        $this->render('list');
+        $this->render('list', ['playerList' => $playerList]);
     }
     
     public function showForm(){
@@ -20,8 +19,8 @@ class CharacterController extends Controller {
         $username = $_POST['username'];
 
         $characterManager = new CharacterManager();
-        $characterManager->create($username);
+        $characterManager->save($username);
 
-        $this->render('list');
+        header("Location: ?action=list");
     }
 }
